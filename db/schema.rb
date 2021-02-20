@@ -10,27 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_195627) do
-
-  create_table "associations", force: :cascade do |t|
-    t.string "association_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "organisationable_type", null: false
-    t.integer "organisationable_id", null: false
-    t.index ["organisationable_type", "organisationable_id"], name: "index_associations_on_organisationable"
-  end
+ActiveRecord::Schema.define(version: 2021_02_20_202220) do
 
   create_table "companies", force: :cascade do |t|
+    t.string "company_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "organisationable_type", null: false
-    t.integer "organisationable_id", null: false
-    t.index ["organisationable_type", "organisationable_id"], name: "index_companies_on_organisationable"
+  end
+
+  create_table "ongs", force: :cascade do |t|
+    t.string "ong_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "organisations", force: :cascade do |t|
-    t.string "name"
     t.string "address"
     t.string "address2"
     t.integer "zip_code"
