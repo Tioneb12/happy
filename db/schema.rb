@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_202220) do
+ActiveRecord::Schema.define(version: 2021_02_20_203326) do
 
   create_table "companies", force: :cascade do |t|
     t.string "company_name"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2021_02_20_202220) do
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "organisationable_type", null: false
+    t.integer "organisationable_id", null: false
+    t.index ["organisationable_type", "organisationable_id"], name: "index_organisations_on_organisationable"
   end
 
 end
